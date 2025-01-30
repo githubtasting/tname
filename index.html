@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pro_1/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingScreen">
+        <div class="spinner"></div>
+      </div>
+      <div class="content" id="content">
+        <!-- 2 -->
+        <header>
+          <h1>Explore Our Tourism Service Packages</h1>
+        </header>
+  
+        <div class="container">
+          <!-- Carousel -->
+          <div class="carousel">
+            <img src="../pro_1/img/slide1.png" alt="Package 1" class="active" />
+            <img src="../pro_1/img/slide2.png" alt="Package 2" />
+            <img src="../pro_1/img/slide3.png" alt="Package 3" />
+          </div>
+  
+          <!-- Packages -->
+          <div class="package-wrapper">
+            <div class="package">
+              <img src="../pro_1/img/book1.png" alt="Cultural Adventure" />
+              <div class="package-content">
+                <h3>3-Day Cultural Adventure in Phnom Penh</h3>
+                <p>
+                  Explore the vibrant culture and history of Phnom Penh. Visit the
+                  Royal Palace, Killing Fields, and enjoy a sunset cruise on the
+                  Mekong River.
+                </p>
+                <p><strong>Price:</strong> $299 per person</p>
+                <a href="#booking" class="btn">Book Now</a>
+              </div>
+            </div>
+  
+            <div class="package">
+              <img src="../pro_1/img/book2.png" alt="Eco-Tourism Retreat" />
+              <div class="package-content">
+                <h3>5-Day Eco-Tourism Retreat</h3>
+                <p>
+                  Discover pristine nature and sustainable tourism in the heart of
+                  Cambodia. Includes hiking, kayaking, and eco-lodge stays.
+                </p>
+                <p><strong>Price:</strong> $499 per person</p>
+                <a href="#booking" class="btn">Book Now</a>
+              </div>
+            </div>
+  
+            <div class="package">
+              <img src="../pro_1/img/book3.png" alt="Luxury Beach Escape" />
+              <div class="package-content">
+                <h3>7-Day Luxury Beach Escape</h3>
+                <p>
+                  Relax on Cambodia's most beautiful beaches with luxury
+                  accommodations, private dining, and exclusive tours.
+                </p>
+                <p><strong>Price:</strong> $999 per person</p>
+                <a href="#booking" class="btn">Book Now</a>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Booking Form -->
+          <div id="booking" class="form-section">
+            <h2>Book Your Package</h2>
+            <form id="bookingForm">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="package">Select Package</label>
+                <select id="package" name="package" required>
+                  <option value="3-Day Cultural Adventure">
+                    3-Day Cultural Adventure
+                  </option>
+                  <option value="5-Day Eco-Tourism Retreat">
+                    5-Day Eco-Tourism Retreat
+                  </option>
+                  <option value="7-Day Luxury Beach Escape">
+                    7-Day Luxury Beach Escape
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="date">Travel Date</label>
+                <input type="date" id="date" name="date" required />
+              </div>
+              <div class="form-group">
+                <button type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+        <button class="scroll-top" id="scrollTop">&uarr;</button>
+        <!-- 3 -->
+        <!-- Header -->
+  
+        <!-- Navigation -->
+        <nav>
+          <a href="javascript:void(0)" onclick="showSection('home')">Pick Card</a>
+          
+          <a href="javascript:void(0)" onclick="showSection('about')">Qoute</a>
+        </nav>
+  
+        <!-- Main Content -->
+        <div class="container">
+          <div id="home" class="section">
+            <div id="packageList"></div>
+  
+            <div id="packageDetails" class="package-details">
+              <img id="packageImage" src="" alt="Package Image" />
+              <h3 id="packageTitle"></h3>
+              <p id="packageDescription"></p>
+              <p id="packagePrice"></p>
+              <p id="packageDuration"></p>
+              <button onclick="openPaymentModal()">Pay Now</button>
+            </div>
+  
+            <div id="paymentModal" class="modal">
+              <div class="modal-content">
+                <h3>Make a Payment</h3>
+                <form id="paymentForm">
+                  <label for="cardName">Cardholder Name:</label>
+                  <input
+                    type="text"
+                    id="cardName"
+                    placeholder="Enter your name"
+                    required
+                  />
+  
+                  <label for="cardNumber">Card Number:</label>
+                  <input
+                    type="text"
+                    id="cardNumber"
+                    placeholder="Enter card number"
+                    required
+                  />
+  
+                  <label for="expiry">Expiry Date:</label>
+                  <input type="month" id="expiry" required />
+  
+                  <label for="cvv">CVV:</label>
+                  <input
+                    type="number"
+                    id="cvv"
+                    placeholder="123"
+                    max="999"
+                    required
+                  />
+  
+                  <button type="submit">
+                    Pay $<span id="paymentAmount"></span>
+                  </button>
+                </form>
+                <button class="close-btn" onclick="closePaymentModal()">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+  
+          <div id="form" class="section" style="display: none">
+            <h2>Sign Up</h2>
+            <form id="signUpForm">
+              <input type="text" id="name" placeholder="Name" required />
+              <input type="email" id="email" placeholder="Email" required />
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+              <button type="submit">Submit</button>
+            </form>
+            <div class="message" id="successMessage">Successfully signed up!</div>
+            <div class="error" id="errorMessage">All fields are required!</div>
+          </div>
+  
+          <div id="about" class="section" style="display: none">
+            <h2>About Us</h2>
+            <p>World Tourism Day 2021: World Tourism Day is observed globally on September 27. The day highlights the travel industry's social, economic, political, and cultural significance. Tourism is one of the most relevant sectors globally as it employs millions of people, which makes them dependent on it for their livelihood. According to United Nations (UN), the tourism sector employs one in every ten people on Earth, and for some countries, it can represent over 20 per cent of their GDP.</p>
+          </div>
+        </div>
+  
+        <!-- Loading Screen -->
+        <div id="loadingScreen" class="loading-overlay">
+          <div class="spinner"></div>
+        </div>
+  
+        <!-- Popup Modal -->
+        <div id="popupOverlay" class="popup-overlay">
+          <div class="popup">
+            <h3>Thank You for Visiting!</h3>
+            <button onclick="closePopup()">Close</button>
+          </div>
+        </div>
+  
+        <!-- filter package -->
+  
+        
+        
+  
+  
+        <div class="filter-section">
+       
+          <div id="priceRange">
+           
+          </div>
+    
+        </div>
+    
+  
+        <footer class="footer">
+          <p>&copy; 2025 By Sokea. All rights reserved.</p>
+          <p>
+              <a href="#about">About</a> | 
+              <a href="#contact">Contact</a> | 
+              <a href="#privacy">Privacy Policy</a>
+          </p>
+          <div class="social-icons">
+              <a href="https://facebook.com" target="_blank">
+                  <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook">
+              </a>
+              <a href="https://twitter.com" target="_blank">
+                  <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+              </a>
+              <a href="https://instagram.com" target="_blank">
+                  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+              </a>
+          </div>
+      </footer>
+
+      <script src="/pro_1/app(for_).js"></script>
+</body>
+</html>
